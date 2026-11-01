@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#073b4c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<title>ការប្រឡង តេស្តសមត្ថភាព ខ្លួនឯង - ភូមិវិទ្យា ថ្នាក់ទី១២</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&display=swap">
+<style>
+:root{--deep:#073b4c;--sea:#118ab2;--mint:#06d6a0;--land:#2e8b57;--gold:#ffd166;--bg:#e8f4f3;--card:#fff;--tx:#10303c;--ok:#1b8a4b;--bad:#c0392b;--line:#c9e2e4}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;min-height:100dvh;color:var(--tx);font-family:'Kantumruy Pro','Noto Sans Khmer','Khmer OS Battambang',system-ui,sans-serif;line-height:1.85;font-size:16px;
+background:
+repeating-radial-gradient(circle at 12% 8%,transparent 0 22px,rgba(17,138,178,.08) 22px 24px),
+repeating-radial-gradient(circle at 88% 92%,transparent 0 26px,rgba(46,139,87,.09) 26px 28px),var(--bg);
+padding-bottom:env(safe-area-inset-bottom,0px)}
+header{background:linear-gradient(160deg,var(--deep),var(--sea) 70%,var(--land));color:#fff;text-align:center;padding:calc(env(safe-area-inset-top,0px) + 20px) 14px 22px;border-bottom:5px solid var(--gold);position:relative;overflow:hidden}
+header::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 36px,rgba(255,255,255,.06) 36px 37px),repeating-linear-gradient(0deg,transparent 0 36px,rgba(255,255,255,.06) 36px 37px);pointer-events:none}
+header>*{position:relative;z-index:1}
+.globe{font-size:2.6rem;line-height:1.3;display:inline-block;animation:spin 10s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.globe{animation:none}}
+header h1{margin:0;font-size:1.3rem;color:var(--gold);line-height:1.6}
+header p{margin:2px 0 0;font-size:.9rem}
+.badge{display:inline-block;margin-top:10px;padding:4px 16px;border:2px solid var(--gold);border-radius:999px;color:var(--gold);font-weight:700;font-size:.92rem;background:rgba(7,59,76,.55)}
+.logo{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);background:#fff}
+a.fb{display:inline-block;margin-top:8px;color:#fff;font-size:.85rem;text-decoration:underline}
+main{max-width:760px;margin:0 auto;padding:14px 14px 8px}
+.card{background:var(--card);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 16px rgba(7,59,76,.13);border-top:4px solid var(--sea)}
+h2,h3{color:var(--deep);margin:.2em 0}
+label{display:block;font-weight:600;margin-top:12px}
+input,select{width:100%;min-height:48px;padding:10px 12px;border:1.5px solid #9cc7cf;border-radius:12px;font:inherit;font-size:16px;background:#fff;color:var(--tx);-webkit-appearance:none;appearance:none}
+select{background-image:linear-gradient(45deg,transparent 50%,var(--deep) 50%),linear-gradient(135deg,var(--deep) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+input[readonly]{background:#e3f4ec;font-weight:600;color:var(--land)}
+button{font:inherit;font-size:16px;cursor:pointer;border:0;border-radius:12px;min-height:48px;padding:10px 18px;background:var(--deep);color:#fff;touch-action:manipulation;-webkit-appearance:none;appearance:none}
+button:active{transform:scale(.98)}
+button.gold{background:var(--gold);color:#05293a;font-weight:700}
+button:disabled{opacity:.4}
+.err{background:#fdecea;color:var(--bad);padding:10px 12px;border-radius:10px;margin-top:12px;font-weight:600}
+.info{background:#e6f6ff;color:var(--deep);padding:10px 12px;border-radius:10px;margin-top:12px;font-weight:600}
+.vip{background:#fff6d6;color:#7a5a00;padding:10px 12px;border-radius:10px;margin-top:12px;font-weight:600;border:1px solid var(--gold)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.timer{background:var(--deep);color:var(--gold);padding:6px 14px;border-radius:999px;font-weight:700;font-size:1.1rem;white-space:nowrap}
+.timer.low{background:var(--bad);color:#fff}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;background:#eef8f8;color:var(--tx);border:2px solid var(--line);padding:12px 14px;line-height:1.7}
+.opt.sel{border-color:var(--land);background:#e3f6ea;font-weight:600}
+.row{display:flex;gap:8px;justify-content:space-between;margin-top:14px}
+.row button{flex:1}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px;margin-top:10px}
+.pal button{padding:4px 0;background:#d6ecee;color:var(--tx)}
+.pal button.done{background:var(--land);color:#fff}
+.pal button.cur{outline:3px solid var(--gold)}
+.big{font-size:2.5rem;font-weight:700;color:var(--deep);text-align:center;line-height:1.4}
+.bar{background:#d6ecee;border-radius:6px;height:12px;overflow:hidden;margin-bottom:6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--land),var(--mint))}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}
+.note{font-size:.85rem;color:#4a6a73}
+.mask{position:fixed;inset:0;background:rgba(5,41,58,.6);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
+.dlg{background:#fff;border-radius:16px;padding:20px;max-width:380px;width:100%;text-align:center}
+footer{text-align:center;padding:12px 14px 20px;font-size:.95rem;color:var(--deep);font-weight:600}
+</style>
+</head>
+<body>
+<header>
+<img id="lg" class="logo" alt="" hidden>
+<div class="globe" id="gl">🌏</div>
+<h1>ការប្រឡង តេស្តសមត្ថភាព ខ្លួនឯង</h1>
+<p>មុខវិជ្ជាភូមិវិទ្យា ថ្នាក់ទី១២ • វិទ្យាល័យប៊ុនរ៉ានីហ៊ុនសែនចាន់ថ្នាល</p>
+<div class="badge">🏅 ស្នាដៃសិក្សា ច្បង ទី១២ ឆ្នាំ ២០២៧</div><br>
+<a class="fb" href="https://www.facebook.com/share/1DoHKTvuj7/" target="_blank" rel="noopener">📷 មើលរូបភាព/ទំព័រហ្វេសប៊ុក</a>
+</header>
+<main id="app"></main>
+<footer>🧭 អ្នកបង្កើតគេហទំព័រប្រឡង៖ លី ពូអុី<br><span class="note">ស្នាដៃសិក្សា ច្បង ទី១២ ឆ្នាំ ២០២៧</span></footer>
+<script>
+const LOGO=""; // ឧទាហរណ៍៖ "logo.jpg"
+const SCHOOL="វិទ្យាល័យប៊ុនរ៉ានីហ៊ុនសែនចាន់ថ្នាល";
+const CREATOR="លីពូអុី"; // ឈ្មោះអ្នកបង្កើត (ប្រៀបធៀបដោយមិនរាប់ចន្លោះ)
+const MAXTRY=2;
+const CH=["ស្ថានភាពសង្គមកម្ពុជា","ការអភិវឌ្ឍប្រជាជនមិនស្មើគ្នា","សេដ្ឋកិច្ចកម្ពុជា","នគរូបនីយកម្មនៅកម្ពុជា","សហរដ្ឋអាមេរិក","ប្រទេសជប៉ុន","សហភាពអឺរ៉ុប"];
+const BANK=[];
+const M=(c,q,o,e)=>BANK.push({c,q,o,a:o[0],e,t:"m"});
+const T=(c,q,v,e)=>BANK.push({c,q,o:["ពិត","មិនពិត"],a:v?"ពិត":"មិនពិត",e,t:"t"});
+M(0,"ដង់ស៊ីតេប្រជាជន គឺជាសមាមាត្ររវាងអ្វី?",["ចំនួនប្រជាជន ធៀបនឹងផ្ទៃក្រឡាដី","ចំនួនកំណើត ធៀបនឹងចំនួនមរណភាព","ចំនួនប្រុស ធៀបនឹងចំនួនស្រី","ចំនួនអ្នកក្រុង ធៀបនឹងអ្នកស្រុក"],"ដង់ស៊ីតេ = ចំនួនប្រជាជន ÷ ផ្ទៃក្រឡា (នាក់/គ.ម²)។");
+T(0,"រាជធានីភ្នំពេញមានដង់ស៊ីតេប្រជាជនខ្ពស់ជាងខេត្តភាគច្រើននៅកម្ពុជា។",true,"ភ្នំពេញជាមជ្ឈមណ្ឌលសេដ្ឋកិច្ច និងរដ្ឋបាល ប្រជាជនកកកុញខ្លាំង។");
+M(1,"សន្ទស្សន៍អភិវឌ្ឍមនុស្ស (HDI) វាស់ដោយផ្អែកលើកត្តាអ្វីខ្លះ?",["សុខភាព ការអប់រំ និងកម្រិតជីវភាព/ចំណូល","ផ្ទៃដី ព្រំដែន និងអាកាសធាតុ","កងទ័ព ការនាំចេញ និងការនាំចូល","ចំនួនសាលា ផ្លូវ និងស្ពាន"],"HDI រួមមានអាយុកាល ការអប់រំ និងចំណូលក្នុងមួយនាក់។");
+M(2,"ដំណាំស្បៀងសំខាន់បំផុតរបស់កម្ពុជាគឺ?",["ស្រូវ","ស្រូវសាលី","កាហ្វេ","តែ"],"ស្រូវជាអាហារចម្បងរបស់ប្រជាជនខ្មែរ។");
+T(2,"បឹងទន្លេសាបជាប្រភពត្រីទឹកសាបដ៏សំខាន់របស់កម្ពុជា។",true,"ជាបឹងទឹកសាបធំជាងគេនៅអាស៊ីអាគ្នេយ៍។");
+M(3,"នគរូបនីយកម្ម គឺជាអ្វី?",["ដំណើរការកើនឡើងនៃសមាមាត្រប្រជាជនរស់នៅទីក្រុង","ការថយចុះចំនួនប្រជាជន","ការផ្លាស់ទីពីទីក្រុងទៅជនបទ","ការបង្កើនដីស្រែ"],"ទីក្រុងកាន់តែធំ និងប្រជាជនក្រុងកាន់តែច្រើន។");
+M(4,"សហរដ្ឋអាមេរិកមានចំនួនរដ្ឋប៉ុន្មាន?",["៥០","៤៨","៥២","៤០"],"មាន ៥០ រដ្ឋ។");
+M(4,"រដ្ឋធានីរបស់សហរដ្ឋអាមេរិកគឺ?",["វ៉ាស៊ីនតោន ឌី.ស៊ី","នូវយ៉ក","ឡូសអង់ជឺឡេស","ស៊ីកាហ្គោ"],"វ៉ាស៊ីនតោន ឌី.ស៊ី ជារដ្ឋធានី។");
+M(5,"រដ្ឋធានីរបស់ប្រទេសជប៉ុនគឺ?",["តូក្យូ","អូសាកា","គីយ៉ូតូ","ណាហ្គោយ៉ា"],"តូក្យូជារដ្ឋធានី។");
+M(5,"ភ្នំខ្ពស់បំផុតរបស់ជប៉ុនគឺ?",["ភ្នំហ្វូជី","ភ្នំអាល់ផ៍","ភ្នំអេវើរេស","ភ្នំរ៉ុកគី"],"ភ្នំហ្វូជីខ្ពស់ប្រមាណ ៣៧៧៦ ម៉ែត្រ។");
+T(5,"ប្រទេសជប៉ុនជាប្រទេសកោះ។",true,"ជប៉ុនមានកោះធំៗ ៤ គឺហុនស៊ូ ហុកកៃដូ គីយូស៊ូ និងស៊ីកូគូ។");
+M(6,"រូបិយប័ណ្ណរួមរបស់ប្រទេសជាច្រើននៅក្នុងសហភាពអឺរ៉ុបគឺ?",["អឺរ៉ូ","ដុល្លារ","ផោន","ហ្វ្រង់"],"តំបន់អឺរ៉ូប្រើរូបិយប័ណ្ណអឺរ៉ូ។");
+M(6,"ទីស្នាក់ការកណ្តាលសំខាន់ៗរបស់សហភាពអឺរ៉ុបស្ថិតនៅទីក្រុងណា?",["ប្រ៊ុចសែល","ប៉ារីស","ឡុងដ៍","រ៉ូម"],"ប្រ៊ុចសែល (បែលហ្ស៊ិក) ជាទីស្នាក់ការសំខាន់របស់ EU។");
+
+const $=id=>document.getElementById(id), app=$("app");
+if(LOGO){$("lg").src=LOGO;$("lg").hidden=false;$("gl").hidden=true}
+const KEY="geo12_self_v2", SKEY="geo12_session_v2", DUR=900, NQ=10;
+const GR=[[85,"A"],[70,"B"],[55,"C"],[40,"D"],[25,"E"],[0,"F"]];
+let S=null,tm=null;
+const rd=k=>{try{return JSON.parse(localStorage.getItem(k)||"null")}catch(e){return null}};
+const wr=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const used=()=>rd(KEY)||{};
+const norm=s=>s.normalize("NFC").replace(/[\s\u200b\u200c\u200d]+/g," ").trim().toLowerCase();
+const flat=s=>norm(s).replace(/ /g,"");
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const kh=n=>String(n).replace(/\d/g,d=>"០១២៣៤៥៦៧៨៩"[d]);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const save=()=>{if(S&&!S.done)wr(SKEY,S)};
+
+function dlg(html,btns){
+const d=document.createElement("div");d.className="mask";
+d.innerHTML=`<div class="dlg" role="dialog" aria-modal="true"><p>${html}</p><div class="row">${btns.map((b,i)=>`<button data-i="${i}" class="${b.c||""}">${b.t}</button>`).join("")}</div></div>`;
+document.body.appendChild(d);
+d.querySelectorAll("button").forEach(b=>b.onclick=()=>{d.remove();const f=btns[+b.dataset.i].f;f&&f()});}
+
+function reg(msg,ok){
+app.innerHTML=`<div class="card"><h2>🧭 ចុះឈ្មោះមុនចូលប្រឡង</h2>
+<p class="note">សិស្សប្រឡងបានអតិបរមា ${kh(MAXTRY)} ដង ក្នុងមួយឈ្មោះ។ ពេលវេលា ${kh(DUR/60)} នាទី ចំនួន ${kh(NQ)} សំណួរ។</p>
+<label for="nm">ឈ្មោះ និងនាមត្រកូល</label><input id="nm" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="ឧទាហរណ៍៖ សុខ ចាន់ណា">
+<label for="sx">ភេទ</label><select id="sx"><option value="">-- ជ្រើសរើស --</option><option>ប្រុស</option><option>ស្រី</option></select>
+<label for="gd">ថ្នាក់</label><select id="gd"><option value="">-- ជ្រើសរើស --</option><option>ថ្នាក់ទី៩</option><option>ថ្នាក់ទី១០</option><option>ថ្នាក់ទី១១</option><option>ថ្នាក់ទី១២</option><option>ផ្សេងៗ</option></select>
+<label for="sc">ឈ្មោះវិទ្យាល័យ</label><input id="sc" value="${SCHOOL}" readonly>
+<label for="tb">លេខតុប្រឡង (មិនចាំបាច់)</label><input id="tb" autocomplete="off" inputmode="numeric">
+<div id="er">${msg?`<div class="${ok?"info":"err"}">${msg}</div>`:""}</div>
+<div class="row"><button class="gold" id="go">ចាប់ផ្តើមប្រឡង</button></div></div>`;
+$("go").onclick=start;}
+
+function start(){
+const nm=$("nm").value.trim(),sx=$("sx").value,gd=$("gd").value,sc=SCHOOL,tb=$("tb").value.trim();
+const e=m=>{$("er").innerHTML=`<div class="err">${m}</div>`};
+if(nm.length<4||!/\s/.test(nm))return e("សូមបញ្ចូលឈ្មោះ និងនាមត្រកូលពេញលេញ (មានចន្លោះរវាងឈ្មោះ និងនាមត្រកូល)។");
+if(!sx)return e("សូមជ្រើសរើសភេទ។");
+if(!gd)return e("សូមជ្រើសរើសថ្នាក់។");
+const vip=flat(nm)===CREATOR;
+if(!vip&&gd!=="ថ្នាក់ទី១២")return e("សូមអភ័យទោស! ការប្រឡងនេះសម្រាប់តែសិស្សថ្នាក់ទី១២ ប៉ុណ្ណោះ។");
+const k=flat(nm)+"|"+flat(sc),u=used(),r=u[k]||{n:0,best:null};
+if(!vip&&r.n>=MAXTRY)return e(`ឈ្មោះនេះបានប្រឡងគ្រប់ ${kh(MAXTRY)} ដងហើយ។`+(r.best!=null?` ពិន្ទុខ្ពស់បំផុត៖ ${kh(r.best)}/១០០`:""));
+r.n++;u[k]=r;wr(KEY,u);
+const qs=shuf(BANK).slice(0,NQ).map(q=>({...q,o:q.t==="t"?q.o:shuf(q.o)}));
+S={k,nm,sx,gd,sc,tb,vip,try:r.n,qs,ans:new Array(qs.length).fill(null),i:0,end:Date.now()+DUR*1000,done:false};
+save();run();}
+
+function run(){clearInterval(tm);tm=setInterval(tick,500);draw();}
+
+function tick(){if(!S||S.done)return;const r=Math.max(0,Math.ceil((S.end-Date.now())/1000));
+const t=$("tm");if(t){t.textContent=kh(String(Math.floor(r/60)).padStart(2,"0"))+":"+kh(String(r%60).padStart(2,"0"));t.classList.toggle("low",r<=60)}
+if(r<=0)submit(true);}
+
+function draw(){
+const q=S.qs[S.i],L=["ក","ខ","គ","ឃ"];
+app.innerHTML=`<div class="card"><div class="top"><div><b>${esc(S.nm)}</b><div class="note">${S.vip?"👑 អ្នកបង្កើត • ប្រឡងគ្មានដែនកំណត់":"ការប្រឡងលើកទី "+kh(S.try)+" / "+kh(MAXTRY)}</div></div><div class="timer" id="tm">--:--</div></div></div>
+<div class="card"><div class="note">សំណួរទី ${kh(S.i+1)} / ${kh(S.qs.length)}</div>
+<p style="font-size:1.1rem;font-weight:600;margin:.4em 0">${esc(q.q)}</p>
+${q.o.map((o,j)=>`<button class="opt ${S.ans[S.i]===o?"sel":""}" data-o="${j}">${L[j]}. ${esc(o)}</button>`).join("")}
+<div class="row"><button id="pv" ${S.i===0?"disabled":""}>មុន</button><button id="nx" ${S.i===S.qs.length-1?"disabled":""}>បន្ទាប់</button></div>
+<div class="row"><button id="rv" class="gold">ពិនិត្យ / ដាក់ស្នើ</button></div></div>
+<div class="card"><b>បញ្ជីសំណួរ</b><div class="pal">${S.qs.map((_,j)=>`<button data-j="${j}" class="${S.ans[j]!==null?"done":""} ${j===S.i?"cur":""}">${kh(j+1)}</button>`).join("")}</div></div>`;
+app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{S.ans[S.i]=q.o[+b.dataset.o];save();draw()});
+app.querySelectorAll(".pal button").forEach(b=>b.onclick=()=>{S.i=+b.dataset.j;save();draw();window.scrollTo(0,0)});
+$("pv").onclick=()=>{S.i--;save();draw();window.scrollTo(0,0)};$("nx").onclick=()=>{S.i++;save();draw();window.scrollTo(0,0)};$("rv").onclick=review;tick();}
+
+function review(){
+const un=S.ans.map((a,i)=>a===null?i+1:null).filter(Boolean);
+app.innerHTML=`<div class="card"><h2>ពិនិត្យចម្លើយមុនដាក់ស្នើ</h2>
+<p>បានឆ្លើយ ${kh(S.ans.length-un.length)} / ${kh(S.ans.length)} សំណួរ។</p>
+${un.length?`<p class="bad">មិនទាន់ឆ្លើយសំណួរទី៖ ${un.map(kh).join(", ")}</p>`:`<p class="ok">បានឆ្លើយគ្រប់សំណួរ។</p>`}
+<p class="note">ពេលវេលានៅសល់៖ <b class="timer" id="tm"></b></p>
+<div class="pal">${S.qs.map((_,j)=>`<button data-j="${j}" class="${S.ans[j]!==null?"done":""}">${kh(j+1)}</button>`).join("")}</div>
+<div class="row"><button id="bk">ត្រឡប់ទៅឆ្លើយបន្ត</button><button id="sb" class="gold">ដាក់ស្នើចម្លើយ</button></div></div>`;
+app.querySelectorAll(".pal button").forEach(b=>b.onclick=()=>{S.i=+b.dataset.j;draw()});
+$("bk").onclick=draw;
+$("sb").onclick=()=>dlg("តើអ្នកប្រាកដថាចង់ដាក់ស្នើមែនទេ? មិនអាចកែបានទៀតទេ។",[{t:"បោះបង់"},{t:"ដាក់ស្នើ",c:"gold",f:()=>submit(false)}]);tick();}
+
+function submit(auto){
+if(!S||S.done)return;S.done=true;clearInterval(tm);
+const N=S.qs.length;let c=0;const per=CH.map(()=>({t:0,c:0}));
+S.qs.forEach((q,i)=>{per[q.c].t++;if(S.ans[i]===q.a){c++;per[q.c].c++}});
+const score=Math.round(c/N*1000)/10,g=GR.find(x=>score>=x[0])[1];
+const u=used(),r=u[S.k]||{n:S.try,best:null};
+if(r.best==null||score>r.best)r.best=score;u[S.k]=r;wr(KEY,u);
+try{localStorage.removeItem(SKEY)}catch(e){}
+result(c,N,score,g,per,auto);}
+
+function result(c,N,score,g,per,auto){
+const weak=per.map((p,i)=>({i,p})).filter(x=>x.p.t&&x.p.c/x.p.t<0.6);
+const left=S.vip?null:MAXTRY-S.try;
+app.innerHTML=`<div class="card"><h2>🏁 លទ្ធផលប្រឡង</h2>${auto?`<p class="bad">អស់ពេល! ប្រព័ន្ធបានដាក់ស្នើដោយស្វ័យប្រវត្តិ។</p>`:""}
+<p>ឈ្មោះ៖ <b>${esc(S.nm)}</b> | ភេទ៖ ${esc(S.sx)} | ${esc(S.gd)}<br>វិទ្យាល័យ៖ ${esc(S.sc)}${S.tb?` | លេខតុ៖ ${esc(S.tb)}`:""}</p>
+<div class="big">${kh(score)} / ១០០</div><p style="text-align:center">ភាគរយ ${kh(score)}% | និទ្ទេស <b>${g}</b></p>
+<p>ចម្លើយត្រូវ៖ <span class="ok">${kh(c)}</span> | ចម្លើយខុស/មិនឆ្លើយ៖ <span class="bad">${kh(N-c)}</span><br>ស្ថានភាព៖ <b>${score>=55?"ជាប់ (តាមមាត្រដ្ឋានហាត់ប្រាណ)":"ធ្លាក់ (តាមមាត្រដ្ឋានហាត់ប្រាណ)"}</b></p>
+<p class="note">មាត្រដ្ឋាននិទ្ទេសនេះសម្រាប់តេស្តសមត្ថភាពខ្លួនឯង (A:៨៥–១០០, B:៧០–៨៤, C:៥៥–៦៩, D:៤០–៥៤, E:២៥–៣៩, F:០–២៤) មិនមែនជាបទប្បញ្ញត្តិផ្លូវការរបស់ក្រសួងអប់រំ យុវជន និងកីឡាទេ។</p>
+${S.vip?`<div class="vip">👑 អ្នកបង្កើតអាចប្រឡងបានរហូត។</div>`:left>0?`<div class="info">អ្នកនៅសល់ការប្រឡង ${kh(left)} ដងទៀត។</div>`:`<div class="err">អ្នកបានប្រឡងគ្រប់ ${kh(MAXTRY)} ដងហើយ។</div>`}
+${S.vip||left>0?`<div class="row"><button class="gold" id="again">ប្រឡងម្តងទៀត</button></div>`:""}</div>
+<div class="card"><h3>លទ្ធផលតាមជំពូក</h3>${per.map((p,i)=>p.t?`<div>${esc(CH[i])} — ${kh(p.c)}/${kh(p.t)}<div class="bar"><i style="width:${p.c/p.t*100}%"></i></div></div>`:"").join("")}
+<h3>ដំបូន្មានសម្រាប់ការសិក្សាបន្ត</h3>${weak.length?`<p>សូមរៀនឡើងវិញនូវជំពូក៖ ${weak.map(x=>"«"+esc(CH[x.i])+"»").join(" , ")} ដោយអានសៀវភៅសិក្សាភូមិវិទ្យាថ្នាក់ទី១២។</p>`:`<p>លទ្ធផលល្អ! សូមបន្តអានសៀវភៅសិក្សា និងហាត់ធ្វើលំហាត់បន្ថែម។</p>`}</div>
+<div class="card"><h3>ចម្លើយត្រឹមត្រូវ និងការពន្យល់</h3>${S.qs.map((q,i)=>{const ok=S.ans[i]===q.a;return `<div style="border-top:1px solid #d6ecee;padding:8px 0"><b>${kh(i+1)}. ${esc(q.q)}</b><br>ចម្លើយអ្នក៖ <span class="${ok?"ok":"bad"}">${S.ans[i]===null?"មិនបានឆ្លើយ":esc(S.ans[i])}</span><br>ចម្លើយត្រូវ៖ <span class="ok">${esc(q.a)}</span><br><span class="note">${esc(q.e)} (ជំពូក៖ ${esc(CH[q.c])})</span></div>`}).join("")}</div>`;
+const ag=$("again");if(ag)ag.onclick=()=>{S=null;reg()};
+window.scrollTo(0,0);}
+
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)tick()});
+window.addEventListener("pagehide",save);
+window.addEventListener("beforeunload",e=>{if(S&&!S.done){e.preventDefault();e.returnValue=""}});
+(function(){const s=rd(SKEY);
+if(s&&s.qs&&!s.done){S=s;if(Date.now()>=S.end){submit(true)}else{run()}}else reg();})();
+</script>
+</body>
+</html>
